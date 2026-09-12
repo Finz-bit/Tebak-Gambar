@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tebak Gambar Challenge - Web Game</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="game-container">
+        <!-- Header Game -->
+        <header class="game-header">
+            <h1><i class="fa-solid fa-puzzle-piece"></i> TEBAK GAMBAR</h1>
+            <div class="stats-bar">
+                <div class="stat-item"><i class="fa-solid fa-star"></i> Poin: <span id="score">0</span></div>
+                <div class="stat-item"><i class="fa-solid fa-layer-group"></i> Level: <span id="current-level">1</span></div>
+                <div class="stat-item timer-box hidden" id="timer-container"><i class="fa-solid fa-clock"></i> <span id="timer">40</span>s</div>
+            </div>
+        </header>
+
+        <!-- Area Konten Game -->
+        <main class="game-main">
+            <!-- Info Kategori & Checkpoint -->
+            <div class="info-banner">
+                <span id="category-tag" class="badge">Kategori: Umum</span>
+                <span id="checkpoint-info" class="badge checkpoint">Checkpoint: Level 1</span>
+            </div>
+
+            <!-- Kotak Gambar -->
+            <div class="image-box">
+                <img id="game-image" src="" alt="Tebak Gambar">
+                <div class="image-overlay" id="image-loading">
+                    <i class="fa-solid fa-spinner fa-spin"></i> Memuat Gambar...
+                </div>
+            </div>
+
+            <!-- Petunjuk / Hint -->
+            <div class="hint-section">
+                <button id="btn-hint" class="btn-secondary"><i class="fa-solid fa-lightbulb"></i> Buka Petunjuk (-10 Poin)</button>
+                <p id="hint-text" class="hint-text hidden"></p>
+            </div>
+
+            <!-- Input & Tombol Jawab -->
+            <div class="input-section">
+                <input type="text" id="user-answer" placeholder="Ketik jawabanmu di sini..." autocomplete="off">
+                <button id="btn-submit" class="btn-primary"><i class="fa-solid fa-paper-plane"></i> Jawab</button>
+            </div>
+        </main>
+
+        <!-- Footer / Tombol Kontrol Tambahan -->
+        <footer class="game-footer">
+            <button id="btn-reset-progress" class="btn-danger-text"><i class="fa-solid fa-rotate-right"></i> Reset Progress</button>
+        </footer>
+    </div>
+
+    <!-- Modal Popup (Menang / Kalah / Selesai Game) -->
+    <div id="game-modal" class="modal hidden">
+        <div class="modal-content">
+            <div id="modal-icon" class="modal-icon">🎉</div>
+            <h2 id="modal-title">Judul Modal</h2>
+            <p id="modal-message">Pesan atau keterangan hasil permainan.</p>
+            <div id="modal-stats" class="modal-stats hidden">
+                <p>Total Poin Akhir: <strong id="final-score">0</strong></p>
+                <p>Level Tertinggi: <strong id="final-level">1</strong></p>
+            </div>
+            <button id="modal-btn" class="btn-primary">Lanjutkan</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
